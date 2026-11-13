@@ -9,4 +9,7 @@ export const site = {
   controllerName: process.env.NEXT_PUBLIC_CONTROLLER_NAME || null,
   supportEmail: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || null,
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  /** Links das lojas. Sem eles, os botões aparecem como "em breve". */
+  appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL || null,
+  playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL || null,
 } as const;
