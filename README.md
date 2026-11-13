@@ -1,38 +1,38 @@
 # Level Fit — site (Next.js)
 
-Example **Privacy Policy** page for the [Level Fit](https://github.com/leooantunes/levelfit) app, built with Next.js 16 (App Router), the app's "Fight Poster" visual identity (Bungee + Rubik fonts, cocoa/ember/gold palette, and Brasa the mascot) and the same text as the policy shown inside the app.
+Página de exemplo de **Política de Privacidade** do app [Level Fit](https://github.com/leooantunes/levelfit), feita com Next.js 16 (App Router), a identidade visual "Pôster de Luta" do app (fontes Bungee + Rubik, paleta cacau/brasa/cinturão e o mascote Brasa) e o mesmo texto da política que aparece dentro do app.
 
-## Pages
+## Páginas
 
-| Route | What it is | Store field |
+| Rota | O que é | Campo na loja |
 |---|---|---|
-| `/` | Short landing page with the privacy summary | — |
-| `/privacidade` | Full privacy policy (LGPD), with a table of contents and anchors per section | App Store: Privacy Policy URL · Google Play: Privacy policy |
-| `/excluir-conta` | Step-by-step guide to deleting your account | Google Play: account deletion URL |
+| `/` | Apresentação curta com o resumo de privacidade | — |
+| `/privacidade` | Política de privacidade completa (LGPD), com índice e âncoras por seção | App Store: Privacy Policy URL · Google Play: Política de privacidade |
+| `/excluir-conta` | Passo a passo para excluir a conta | Google Play: URL para excluir a conta |
 
-`/privacy` redirects (308) to `/privacidade`.
+`/privacy` redireciona (308) para `/privacidade`.
 
-## Where the text lives
+## Onde fica o texto
 
-All the content is in [`src/content/privacyPolicy.ts`](src/content/privacyPolicy.ts), structured as sections and blocks (`p`, `ul`, `ol`, `callout`). The text supports `**bold**`, `{{controller}}` and `{{email}}`. It is the same policy as the app's `src/lib/privacyPolicy.ts` and `docs/index.html#privacidade`: when one changes, change the other and update `UPDATED_AT`.
+Todo o conteúdo está em [`src/content/privacyPolicy.ts`](src/content/privacyPolicy.ts), organizado em seções e blocos (`p`, `ul`, `ol`, `callout`). O texto aceita `**negrito**`, `{{controller}}` e `{{email}}`. É a mesma política de `src/lib/privacyPolicy.ts` e `docs/index.html#privacidade` do app: mudou lá, mude aqui e atualize `UPDATED_AT`.
 
-## Configuration
+## Configuração
 
 ```bash
 cp .env.example .env.local
 ```
 
-| Variable | Use |
+| Variável | Uso |
 |---|---|
-| `NEXT_PUBLIC_CONTROLLER_NAME` | Name of the person or company that controls the data (LGPD) |
-| `NEXT_PUBLIC_SUPPORT_EMAIL` | Contact email (the same as `EXPO_PUBLIC_SUPPORT_EMAIL` in the app) |
-| `NEXT_PUBLIC_SITE_URL` | Public site URL (metadata and canonical) |
+| `NEXT_PUBLIC_CONTROLLER_NAME` | Nome da pessoa ou empresa controladora dos dados (LGPD) |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | E-mail de contato (o mesmo de `EXPO_PUBLIC_SUPPORT_EMAIL` no app) |
+| `NEXT_PUBLIC_SITE_URL` | URL pública do site (metadados e canonical) |
 
-Until these are filled in, the page shows the fields **highlighted in yellow** (`[SEU NOME OU EMPRESA]`, `[E-MAIL DE SUPORTE]`) so no one publishes with a placeholder by accident.
+Enquanto não forem preenchidos, a página mostra os campos **destacados em amarelo** (`[SEU NOME OU EMPRESA]`, `[E-MAIL DE SUPORTE]`) para ninguém publicar com placeholder sem perceber.
 
-Afterwards, in the app's `.env`: `EXPO_PUBLIC_PRIVACY_POLICY_URL=https://<your-domain>/privacidade`.
+Depois, no `.env` do app: `EXPO_PUBLIC_PRIVACY_POLICY_URL=https://<seu-dominio>/privacidade`.
 
-## Running
+## Rodando
 
 ```bash
 npm install
